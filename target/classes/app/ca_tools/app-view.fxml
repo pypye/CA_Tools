@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.ca_tools.ApplicationController">
+    <children>
+        <TabPane layoutX="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                 AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Dấu phẩy tĩnh">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <VBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Dấu phẩy tĩnh 2 to 10" textFill="#da00ff">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Phần nguyên"/>
+                                                        <TextField fx:id="staticPoint2to10Int" prefHeight="25.0"
+                                                                   prefWidth="309.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Phần thập phân"/>
+                                                        <TextField fx:id="staticPoint2to10Frac" prefHeight="25.0"
+                                                                   prefWidth="309.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <CheckBox fx:id="staticPoint2to10FirstBit" mnemonicParsing="false"
+                                                          selected="true" text="Bit đầu là bit dấu"/>
+                                                <Button fx:id="staticPoint2to10Convert" mnemonicParsing="false"
+                                                        onAction="#onStaticPoint2to10ConvertClick" text="Chuyển"/>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Kết quả"/>
+                                                        <TextField fx:id="staticPoint2to10Output" editable="false"
+                                                                   prefHeight="25.0" prefWidth="309.0"/>
+                                                        <Button fx:id="staticPoint2to10Copy" mnemonicParsing="false"
+                                                                onAction="#onStaticPoint2to10CopyClick" text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <Label fx:id="staticPoint2to10Error" textFill="RED" wrapText="true"/>
+                                        <VBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Dấu phẩy tĩnh 10 to 2" textFill="#da00ff">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Input"/>
+                                                        <TextField fx:id="staticPoint10to2tInput" prefHeight="25.0"
+                                                                   prefWidth="309.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Số bit phần nguyên"/>
+                                                        <TextField fx:id="staticPoint10to2IntCount" prefHeight="25.0"
+                                                                   prefWidth="85.0" text="12"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Số bit phần thập phân"/>
+                                                        <TextField fx:id="staticPoint10to2FracCount" prefHeight="25.0"
+                                                                   prefWidth="80.0" text="4"/>
+                                                    </children>
+                                                </HBox>
+                                                <Button fx:id="staticPoint10to2Convert" mnemonicParsing="false"
+                                                        onAction="#onStaticPoint10to2ConvertClick" text="Chuyển"/>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Kết quả"/>
+                                                        <TextField fx:id="staticPoint10to2Output" editable="false"
+                                                                   prefHeight="25.0" prefWidth="309.0"/>
+                                                        <Button mnemonicParsing="false"
+                                                                onAction="#onStaticPoint10to2CopyClick" text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="staticPoint10to2Error" textFill="RED" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Chuyển cơ số">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <VBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Cơ số 10 to 2" textFill="#da00ff">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Input"/>
+                                                        <TextField fx:id="base10to2Input" prefHeight="25.0"
+                                                                   prefWidth="172.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Số bit"/>
+                                                        <TextField fx:id="base10to2BitCount" prefHeight="25.0"
+                                                                   prefWidth="75.0" text="32"/>
+                                                    </children>
+                                                </HBox>
+                                                <ChoiceBox fx:id="base10to2ChoiceType" prefWidth="150.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onBase10to2ConvertClick"
+                                                        text="Chuyển"/>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Output"/>
+                                                        <TextField fx:id="base10to2Output" prefHeight="25.0"
+                                                                   prefWidth="240.0"/>
+                                                        <Button mnemonicParsing="false" onAction="#onBase10to2CopyClick"
+                                                                text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="base10to2Error" textFill="RED" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Cơ số 2 to 10" textFill="#da00ff">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Input"/>
+                                                        <TextField fx:id="base2to10Input" prefHeight="25.0"
+                                                                   prefWidth="172.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <ChoiceBox fx:id="base2to10ChoiceType" prefWidth="150.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onBase2to10ConvertClick"
+                                                        text="Chuyển"/>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Output"/>
+                                                        <TextField fx:id="base2to10Output" prefHeight="25.0"
+                                                                   prefWidth="240.0"/>
+                                                        <Button mnemonicParsing="false" onAction="#onBase2to10CopyClick"
+                                                                text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="base2to10Error" textFill="RED" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Chuẩn hoá">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label text="Chuẩn hoá sang hệ 10, dấu phẩy động đơn, dấu phẩy động kép"
+                                               textFill="#da00ff">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <TextField fx:id="normalizeSign" prefHeight="25.0" prefWidth="24.0"
+                                                           text="+"/>
+                                                <Label text="1."/>
+                                                <TextField fx:id="normalizeFraction" prefHeight="25.0"
+                                                           prefWidth="172.0"/>
+                                                <Label text="x 2 ^"/>
+                                                <TextField fx:id="normalizeBase" prefHeight="25.0" prefWidth="71.0"/>
+                                            </children>
+                                        </HBox>
+                                        <Button mnemonicParsing="false" onAction="#onNormalizeConvertClick"
+                                                text="Chuyển"/>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Hệ 10"/>
+                                                <TextField fx:id="normalize10Output" prefHeight="25.0"
+                                                           prefWidth="315.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onNormalize10CopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Single"/>
+                                                <TextField fx:id="normalizeSingleOutput" prefHeight="25.0"
+                                                           prefWidth="315.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onNormalizeSingleCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Double"/>
+                                                <TextField fx:id="normalizeDoubleOutput" prefHeight="25.0"
+                                                           prefWidth="453.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onNormalizeDoubleCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="normalizeError" textFill="RED" wrapText="true"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Hệ 10">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0"
+                                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label text="Hệ 10 sang các dạng chuẩn hoá, dấu phẩy động đơn, dấu phẩy động kép"
+                                               textFill="#da00ff">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Input"/>
+                                                <TextField fx:id="base10Input" prefHeight="25.0" prefWidth="218.0"/>
+                                            </children>
+                                        </HBox>
+                                        <Button mnemonicParsing="false" onAction="#onBase10ConvertClick" text="Chuyển"/>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Chuẩn hoá"/>
+                                                <TextField fx:id="base10NormalizeOutput" prefHeight="25.0"
+                                                           prefWidth="377.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onBase10NormalizeCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Single"/>
+                                                <TextField fx:id="base10SingleOutput" prefHeight="25.0"
+                                                           prefWidth="352.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onBase10SingleCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Double"/>
+                                                <TextField fx:id="base10DoubleOutput" prefHeight="25.0"
+                                                           prefWidth="457.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onBase10DoubleCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="base10Error" textFill="RED" wrapText="true"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Single Float">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <VBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Dấu phẩy động đơn sang chuẩn hoá, hệ 10"
+                                                       textFill="#da00ff">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Input"/>
+                                                        <TextField fx:id="singleInput" prefHeight="25.0"
+                                                                   prefWidth="350.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" onAction="#onSingleConvertClick"
+                                                        text="Chuyển"/>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Chuẩn hoá"/>
+                                                        <TextField fx:id="singleNormalizeOutput" prefHeight="25.0"
+                                                                   prefWidth="360.0"/>
+                                                        <Button mnemonicParsing="false"
+                                                                onAction="#onSingleNormalizeCopyClick" text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="107.0" spacing="10.0">
+                                                    <children>
+                                                        <Label text="Hệ 10"/>
+                                                        <TextField fx:id="single10Output" prefHeight="25.0"
+                                                                   prefWidth="360.0"/>
+                                                        <Button mnemonicParsing="false" onAction="#onSingle10CopyClick"
+                                                                text="Copy"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="singleError" textFill="RED" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Double Float">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label text="Dấu phẩy động kép sang chuẩn hoá, hệ 10" textFill="#da00ff">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="10.0">
+                                            <children>
+                                                <Label text="Input"/>
+                                                <TextField fx:id="doubleInput" prefHeight="25.0" prefWidth="513.0"/>
+                                            </children>
+                                        </HBox>
+                                        <Button mnemonicParsing="false" onAction="#onDoubleConvertClick" text="Chuyển"/>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Chuẩn hoá"/>
+                                                <TextField fx:id="doubleNormalizeOutput" prefHeight="25.0"
+                                                           prefWidth="388.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onDoubleNormalizeCopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Hệ 10"/>
+                                                <TextField fx:id="double10Output" prefHeight="25.0" prefWidth="369.0"/>
+                                                <Button mnemonicParsing="false" onAction="#onDouble10CopyClick"
+                                                        text="Copy"/>
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="doubleError" textFill="RED" wrapText="true"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
