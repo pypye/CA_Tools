@@ -30,6 +30,14 @@ public class ApplicationController {
         base10to2ChoiceType.setValue("Bù 2");
         base2to10ChoiceType.setItems(FXCollections.observableArrayList("Chuẩn bit dấu", "Bù 1", "Bù 2"));
         base2to10ChoiceType.setValue("Bù 2");
+        normalizeSign.setItems(FXCollections.observableArrayList("+", "-"));
+        normalizeSign.setValue("+");
+        calcExpression.setItems(FXCollections.observableArrayList("Cộng", "Trừ", "Nhân", "Chia"));
+        calcExpression.setValue("Cộng");
+        calcSign1.setItems(FXCollections.observableArrayList("+", "-"));
+        calcSign1.setValue("+");
+        calcSign2.setItems(FXCollections.observableArrayList("+", "-"));
+        calcSign2.setValue("+");
     }
 
     @FXML
@@ -50,8 +58,8 @@ public class ApplicationController {
             for (int i = 0; i < fracPart.length(); i++) {
                 ans += (fracPart.charAt(i) == '0' ? 0 : Math.pow(2, -i - 1));
             }
-            staticPoint2to10Error.setText(null);
             staticPoint2to10Output.setText(String.valueOf(ans));
+            staticPoint2to10Error.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             staticPoint2to10Error.setText(ERROR);
@@ -100,8 +108,8 @@ public class ApplicationController {
                     output.append("1");
                 }
             }
-            staticPoint10to2Error.setText(null);
             staticPoint10to2Output.setText(output.toString());
+            staticPoint10to2Error.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             staticPoint10to2Error.setText(ERROR);
@@ -142,6 +150,7 @@ public class ApplicationController {
                 }
             }
             base2to10Output.setText(String.valueOf(ans));
+            base2to10Error.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             base2to10Error.setText(ERROR);
@@ -195,8 +204,8 @@ public class ApplicationController {
                     }
                 }
             }
-            base10to2Error.setText(null);
             base10to2Output.setText(String.valueOf(ans));
+            base10to2Error.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             base10to2Error.setText(ERROR);
@@ -211,7 +220,9 @@ public class ApplicationController {
 
     //normalize to any
     @FXML
-    private TextField normalizeSign, normalizeFraction, normalizeBase;
+    private ChoiceBox<String> normalizeSign;
+    @FXML
+    private TextField normalizeFraction, normalizeBase;
     @FXML
     private TextField normalize10Output, normalizeSingleOutput, normalizeDoubleOutput;
     @FXML
@@ -220,13 +231,14 @@ public class ApplicationController {
     @FXML
     public void onNormalizeConvertClick() {
         try {
-            boolean _sign = normalizeSign.getText().equals("-");
+            boolean _sign = normalizeSign.getValue().equals("-");
             String _fraction = "1." + normalizeFraction.getText();
             int _base = Integer.parseInt(normalizeBase.getText());
             Normalize input = new Normalize(_sign, _fraction, _base);
             normalize10Output.setText(Base10.convertNormalizeTo10(input));
             normalizeSingleOutput.setText(FloatSingle.convertNormalizeToSingle(input));
             normalizeDoubleOutput.setText(FloatDouble.convertNormalizeToDouble(input));
+            normalizeError.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             normalizeError.setText(ERROR);
@@ -262,11 +274,11 @@ public class ApplicationController {
             base10NormalizeOutput.setText(newAns);
             base10SingleOutput.setText(FloatSingle.convertNormalizeToSingle(input));
             base10DoubleOutput.setText(FloatDouble.convertNormalizeToDouble(input));
+            base10Error.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             base10Error.setText(ERROR);
         }
-
     }
 
     @FXML
@@ -286,7 +298,7 @@ public class ApplicationController {
 
     //single to any
     @FXML
-    private TextField singleInput, singleNormalizeOutput, single10Output;
+    private TextField singleInput, singleNormalizeOutput, single10Output, singleDoubleOutput;
     @FXML
     private Label singleError;
 
@@ -299,6 +311,8 @@ public class ApplicationController {
             String newAns = String.format("%s%sx2^(%s)\n", output.isSign() ? "-" : "", output.getFraction(), output.getBase());
             singleNormalizeOutput.setText(newAns);
             single10Output.setText(Base10.convertSingleToBase10(inputSingle));
+            singleDoubleOutput.setText(FloatDouble.convertNormalizeToDouble(output));
+            singleError.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             singleError.setText(ERROR);
@@ -315,9 +329,14 @@ public class ApplicationController {
         copyToClipboard(single10Output.getText());
     }
 
+    @FXML
+    public void onSingleDoubleCopyClick() {
+        copyToClipboard(singleDoubleOutput.getText());
+    }
+
     //double to any
     @FXML
-    private TextField doubleInput, doubleNormalizeOutput, double10Output;
+    private TextField doubleInput, doubleNormalizeOutput, double10Output, doubleSingleOutput;
     @FXML
     private Label doubleError;
 
@@ -330,6 +349,8 @@ public class ApplicationController {
             String newAns = String.format("%s%sx2^(%s)\n", output.isSign() ? "-" : "", output.getFraction(), output.getBase());
             doubleNormalizeOutput.setText(newAns);
             double10Output.setText(Base10.convertDoubleToBase10(inputDouble));
+            doubleSingleOutput.setText(FloatSingle.convertNormalizeToSingle(output));
+            doubleError.setText(null);
         } catch (Exception e) {
             e.printStackTrace();
             doubleError.setText(ERROR);
@@ -346,4 +367,122 @@ public class ApplicationController {
         copyToClipboard(double10Output.getText());
     }
 
+    @FXML
+    public void onDoubleSingleCopyClick() {
+        copyToClipboard(doubleSingleOutput.getText());
+    }
+
+    //calc normalize
+    @FXML
+    private ChoiceBox<String> calcSign1, calcSign2, calcExpression;
+    @FXML
+    private TextField calcFraction1, calcFraction2, calcBase1, calcBase2;
+    @FXML
+    private TextField calcNormalizeOutput, calc10Output, calcSingleOutput, calcDoubleOutput;
+    @FXML
+    private Label calcError;
+
+    @FXML
+    public void onCalcClick() {
+        try {
+            boolean sign1 = calcSign1.getValue().equals("-");
+            boolean sign2 = calcSign2.getValue().equals("-");
+            String fraction1 = "1." + calcFraction1.getText();
+            String fraction2 = "1." + calcFraction2.getText();
+            int base1 = Integer.parseInt(calcBase1.getText());
+            int base2 = Integer.parseInt(calcBase2.getText());
+            Normalize input1 = new Normalize(sign1, fraction1, base1);
+            Normalize input2 = new Normalize(sign2, fraction2, base2);
+            double base10Input1 = Double.parseDouble(Base10.convertNormalizeTo10(input1));
+            double base10Input2 = Double.parseDouble(Base10.convertNormalizeTo10(input2));
+            double base10Output = 0;
+            if (calcExpression.getValue().equals("Cộng")) base10Output = base10Input1 + base10Input2;
+            else if (calcExpression.getValue().equals("Trừ")) base10Output = base10Input1 - base10Input2;
+            else if (calcExpression.getValue().equals("Nhân")) base10Output = base10Input1 * base10Input2;
+            else base10Output = base10Input1 / base10Input2;
+            String string10Output = String.valueOf(base10Output);
+            Normalize normalizeOutput = Normalize.convert10ToNormalize(string10Output);
+            String newAns = String.format("%s%sx2^(%s)\n", normalizeOutput.isSign() ? "-" : "", normalizeOutput.getFraction(), normalizeOutput.getBase());
+            String singleOutput = FloatSingle.convertNormalizeToSingle(normalizeOutput);
+            String doubleOutput = FloatDouble.convertNormalizeToDouble(normalizeOutput);
+            calcNormalizeOutput.setText(newAns);
+            calc10Output.setText(string10Output);
+            calcSingleOutput.setText(singleOutput);
+            calcDoubleOutput.setText(doubleOutput);
+            calcError.setText(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            calcError.setText(ERROR);
+        }
+    }
+
+    @FXML
+    public void onCalcCopyNormalizeClick() {
+        copyToClipboard(calcNormalizeOutput.getText());
+    }
+
+    @FXML
+    public void onCalcCopy10Click() {
+        copyToClipboard(calc10Output.getText());
+    }
+
+    @FXML
+    public void onCalcCopySingleClick() {
+        copyToClipboard(calcSingleOutput.getText());
+    }
+
+    @FXML
+    public void onCalcCopyDoubleClick() {
+        copyToClipboard(calcDoubleOutput.getText());
+    }
+
+    //other problem
+    @FXML
+    private TextField otherBusCount, otherBusRW, otherBusFreq, otherBusOutput, otherBusOutputGB;
+    @FXML
+    private TextField otherAddressInput, otherAddressOutput;
+    @FXML
+    private TextField otherAddress2Size, otherAddress2Count, otherAddress2Output;
+
+    @FXML
+    public void onBusClick() {
+        try {
+            double count = Double.parseDouble(otherBusCount.getText());
+            double RW = Double.parseDouble(otherBusRW.getText());
+            double freq = Double.parseDouble(otherBusFreq.getText());
+            double RWPerSec = (freq * 1000000) / RW;
+            double bytes = count / 8;
+            double speed = (RWPerSec * bytes) / 1048576;
+            otherBusOutput.setText(String.valueOf(speed));
+            otherBusOutputGB.setText(String.valueOf(speed / 1024));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void onAddressClick() {
+        try {
+            double input = Double.parseDouble(otherAddressInput.getText());
+            int output = (int) Math.ceil(Math.log(input) / Math.log(2));
+            otherAddressOutput.setText(String.valueOf(output));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void onAddress2Click() {
+        try {
+            double size = Double.parseDouble(otherAddress2Size.getText());
+            double count = Double.parseDouble(otherAddress2Count.getText());
+            double output = (size * 1024 * 1024 * 1024) / (count / 8);
+            int line = (int) Math.ceil(Math.log(output) / Math.log(2));
+            otherAddress2Output.setText(String.valueOf(line));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
