@@ -15,545 +15,1023 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ca_tools.ApplicationController">
     <children>
-        <TabPane layoutX="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <tabs>
-                <Tab text="Dấu phẩy tĩnh">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <VBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Dấu phẩy tĩnh 2 to 10" textAlignment="CENTER" textFill="#da00ff">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0" />
-                                                    </font>
-                                                </Label>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Phần nguyên" />
-                                                        <TextField fx:id="staticPoint2to10Int" prefHeight="25.0" prefWidth="309.0" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Phần thập phân" />
-                                                        <TextField fx:id="staticPoint2to10Frac" prefHeight="25.0" prefWidth="309.0" />
-                                                    </children>
-                                                </HBox>
-                                                <CheckBox fx:id="staticPoint2to10FirstBit" mnemonicParsing="false" selected="true" text="Bit đầu là bit dấu" />
-                                                <Button fx:id="staticPoint2to10Convert" mnemonicParsing="false" onAction="#onStaticPoint2to10ConvertClick" text="Chuyển" />
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Kết quả" />
-                                                        <TextField fx:id="staticPoint2to10Output" editable="false" prefHeight="25.0" prefWidth="309.0" />
-                                                        <Button fx:id="staticPoint2to10Copy" mnemonicParsing="false" onAction="#onStaticPoint2to10CopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                            </children>
-                                        </VBox>
-                                        <Label fx:id="staticPoint2to10Error" textFill="RED" wrapText="true" />
-                                        <VBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Dấu phẩy tĩnh 10 to 2" textAlignment="CENTER" textFill="#da00ff">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0" />
-                                                    </font>
-                                                </Label>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Input" />
-                                                        <TextField fx:id="staticPoint10to2tInput" prefHeight="25.0" prefWidth="309.0" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Số bit phần nguyên" />
-                                                        <TextField fx:id="staticPoint10to2IntCount" prefHeight="25.0" prefWidth="85.0" text="12" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Số bit phần thập phân" />
-                                                        <TextField fx:id="staticPoint10to2FracCount" prefHeight="25.0" prefWidth="80.0" text="4" />
-                                                    </children>
-                                                </HBox>
-                                                <Button fx:id="staticPoint10to2Convert" mnemonicParsing="false" onAction="#onStaticPoint10to2ConvertClick" text="Chuyển" />
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Kết quả" />
-                                                        <TextField fx:id="staticPoint10to2Output" editable="false" prefHeight="25.0" prefWidth="309.0" />
-                                                        <Button mnemonicParsing="false" onAction="#onStaticPoint10to2CopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                                <Label fx:id="staticPoint10to2Error" textFill="RED" wrapText="true" />
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Chuyển cơ số">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <VBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Cơ số 10 to 2" textAlignment="CENTER" textFill="#da00ff">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0" />
-                                                    </font>
-                                                </Label>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Input" />
-                                                        <TextField fx:id="base10to2Input" prefHeight="25.0" prefWidth="172.0" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Số bit" />
-                                                        <TextField fx:id="base10to2BitCount" prefHeight="25.0" prefWidth="75.0" text="32" />
-                                                    </children>
-                                                </HBox>
-                                                <ChoiceBox fx:id="base10to2ChoiceType" prefWidth="150.0" />
-                                                <Button mnemonicParsing="false" onAction="#onBase10to2ConvertClick" text="Chuyển" />
-                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Output" />
-                                                        <TextField fx:id="base10to2Output" editable="false" prefHeight="25.0" prefWidth="240.0" />
-                                                        <Button mnemonicParsing="false" onAction="#onBase10to2CopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                                <Label fx:id="base10to2Error" textFill="RED" wrapText="true" />
-                                            </children>
-                                        </VBox>
-                                        <VBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Cơ số 2 to 10" textAlignment="CENTER" textFill="#da00ff">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0" />
-                                                    </font>
-                                                </Label>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Input" />
-                                                        <TextField fx:id="base2to10Input" prefHeight="25.0" prefWidth="172.0" />
-                                                    </children>
-                                                </HBox>
-                                                <ChoiceBox fx:id="base2to10ChoiceType" prefWidth="150.0" />
-                                                <Button mnemonicParsing="false" onAction="#onBase2to10ConvertClick" text="Chuyển" />
-                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Output" />
-                                                        <TextField fx:id="base2to10Output" editable="false" prefHeight="25.0" prefWidth="240.0" />
-                                                        <Button mnemonicParsing="false" onAction="#onBase2to10CopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                                <Label fx:id="base2to10Error" textFill="RED" wrapText="true" />
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Chuẩn hoá">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <Label text="Chuẩn hoá sang hệ 10, dấu phẩy động đơn, dấu phẩy động kép" textAlignment="CENTER" textFill="#da00ff">
-                                            <font>
-                                                <Font name="System Bold" size="12.0" />
-                                            </font>
-                                        </Label>
-                                        <HBox alignment="CENTER" spacing="5.0">
-                                            <children>
-                                    <ChoiceBox fx:id="normalizeSign" prefHeight="25.0" prefWidth="36.0" />
-                                                <Label text="1." />
-                                                <TextField fx:id="normalizeFraction" prefHeight="25.0" prefWidth="172.0" />
-                                                <Label text="x 2 ^" />
-                                                <TextField fx:id="normalizeBase" prefHeight="25.0" prefWidth="71.0" />
-                                            </children>
-                                        </HBox>
-                                        <Button mnemonicParsing="false" onAction="#onNormalizeConvertClick" text="Chuyển" />
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Hệ 10" />
-                                                <TextField fx:id="normalize10Output" editable="false" prefHeight="25.0" prefWidth="315.0" />
-                                                <Button mnemonicParsing="false" onAction="#onNormalize10CopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Single" />
-                                                <TextField fx:id="normalizeSingleOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
-                                                <Button mnemonicParsing="false" onAction="#onNormalizeSingleCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Double" />
-                                                <TextField fx:id="normalizeDoubleOutput" editable="false" prefHeight="25.0" prefWidth="453.0" />
-                                                <Button mnemonicParsing="false" onAction="#onNormalizeDoubleCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <Label fx:id="normalizeError" textFill="RED" wrapText="true" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Hệ 10">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <Label text="Hệ 10 sang các dạng chuẩn hoá, dấu phẩy động đơn, dấu phẩy động kép" textAlignment="CENTER" textFill="#da00ff">
-                                            <font>
-                                                <Font name="System Bold" size="12.0" />
-                                            </font>
-                                        </Label>
-                                        <HBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Input" />
-                                                <TextField fx:id="base10Input" prefHeight="25.0" prefWidth="218.0" />
-                                            </children>
-                                        </HBox>
-                                        <Button mnemonicParsing="false" onAction="#onBase10ConvertClick" text="Chuyển" />
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Chuẩn hoá" />
-                                                <TextField fx:id="base10NormalizeOutput" editable="false" prefHeight="25.0" prefWidth="377.0" />
-                                                <Button mnemonicParsing="false" onAction="#onBase10NormalizeCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Single" />
-                                                <TextField fx:id="base10SingleOutput" editable="false" prefHeight="25.0" prefWidth="352.0" />
-                                                <Button mnemonicParsing="false" onAction="#onBase10SingleCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Double" />
-                                                <TextField fx:id="base10DoubleOutput" editable="false" prefHeight="25.0" prefWidth="457.0" />
-                                                <Button mnemonicParsing="false" onAction="#onBase10DoubleCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <Label fx:id="base10Error" textFill="RED" wrapText="true" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Single Float">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <VBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Dấu phẩy động đơn sang chuẩn hoá, hệ 10" textAlignment="CENTER" textFill="#da00ff">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0" />
-                                                    </font>
-                                                </Label>
-                                                <HBox alignment="CENTER" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Input" />
-                                                        <TextField fx:id="singleInput" prefHeight="25.0" prefWidth="350.0" />
-                                                    </children>
-                                                </HBox>
-                                                <Button mnemonicParsing="false" onAction="#onSingleConvertClick" text="Chuyển" />
-                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Chuẩn hoá" />
-                                                        <TextField fx:id="singleNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="360.0" />
-                                                        <Button mnemonicParsing="false" onAction="#onSingleNormalizeCopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="107.0" spacing="10.0">
-                                                    <children>
-                                                        <Label text="Hệ 10" />
-                                                        <TextField fx:id="single10Output" editable="false" prefHeight="25.0" prefWidth="360.0" />
-                                                        <Button mnemonicParsing="false" onAction="#onSingle10CopyClick" text="Copy" />
-                                                    </children>
-                                                </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="142.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Double" />
-                                          <TextField fx:id="singleDoubleOutput" editable="false" prefHeight="25.0" prefWidth="360.0" />
-                                          <Button mnemonicParsing="false" onAction="#onSingleDoubleCopyClick" text="Copy" />
-                                       </children>
-                                    </HBox>
-                                                <Label fx:id="singleError" textFill="RED" wrapText="true" />
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Double Float">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <Label text="Dấu phẩy động kép sang chuẩn hoá, hệ 10" textAlignment="CENTER" textFill="#da00ff">
-                                            <font>
-                                                <Font name="System Bold" size="12.0" />
-                                            </font>
-                                        </Label>
-                                        <HBox alignment="CENTER" spacing="10.0">
-                                            <children>
-                                                <Label text="Input" />
-                                                <TextField fx:id="doubleInput" prefHeight="25.0" prefWidth="513.0" />
-                                            </children>
-                                        </HBox>
-                                        <Button mnemonicParsing="false" onAction="#onDoubleConvertClick" text="Chuyển" />
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Chuẩn hoá" />
-                                                <TextField fx:id="doubleNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="388.0" />
-                                                <Button mnemonicParsing="false" onAction="#onDoubleNormalizeCopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Hệ 10" />
-                                                <TextField fx:id="double10Output" editable="false" prefHeight="25.0" prefWidth="369.0" />
-                                                <Button mnemonicParsing="false" onAction="#onDouble10CopyClick" text="Copy" />
-                                            </children>
-                                        </HBox>
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Single" />
-                                    <TextField fx:id="doubleSingleOutput" editable="false" prefHeight="25.0" prefWidth="369.0" />
-                                    <Button mnemonicParsing="false" onAction="#onDoubleSingleCopyClick" text="Copy" />
-                                 </children>
-                              </HBox>
-                                        <Label fx:id="doubleError" textFill="RED" wrapText="true" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-            <Tab text="Phép tính chuẩn hoá">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <TabPane prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Chương 1 + 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Label text="Phép tính cộng trừ nhân chia với chuẩn hoá" textAlignment="CENTER" textFill="#da00ff">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <HBox alignment="CENTER" spacing="5.0">
-                                 <children>
-                                    <ChoiceBox fx:id="calcSign1" prefHeight="25.0" prefWidth="36.0" />
-                                    <Label text="1." />
-                                    <TextField fx:id="calcFraction1" prefHeight="25.0" prefWidth="172.0" />
-                                    <Label text="x 2 ^" />
-                                    <TextField fx:id="calcBase1" prefHeight="25.0" prefWidth="71.0" />
-                                 </children>
-                              </HBox>
-                              <ChoiceBox fx:id="calcExpression" prefHeight="25.0" prefWidth="112.0" />
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="161.0" spacing="5.0">
-                                 <children>
-                                    <ChoiceBox fx:id="calcSign2" prefHeight="25.0" prefWidth="36.0" />
-                                    <Label text="1." />
-                                    <TextField fx:id="calcFraction2" prefHeight="25.0" prefWidth="172.0" />
-                                    <Label text="x 2 ^" />
-                                    <TextField fx:id="calcBase2" prefHeight="25.0" prefWidth="71.0" />
-                                 </children>
-                              </HBox>
-                              <Button mnemonicParsing="false" onAction="#onCalcClick" text="Chuyển" />
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Chuẩn hoá" />
-                                    <TextField fx:id="calcNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
-                                    <Button mnemonicParsing="false" onAction="#onCalcCopyNormalizeClick" text="Copy" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Hệ 10" />
-                                    <TextField fx:id="calc10Output" editable="false" prefHeight="25.0" prefWidth="315.0" />
-                                    <Button mnemonicParsing="false" onAction="#onCalcCopy10Click" text="Copy" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Single" />
-                                    <TextField fx:id="calcSingleOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
-                                    <Button mnemonicParsing="false" onAction="#onCalcCopySingleClick" text="Copy" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Double" />
-                                    <TextField fx:id="calcDoubleOutput" editable="false" prefHeight="25.0" prefWidth="453.0" />
-                                    <Button mnemonicParsing="false" onAction="#onCalcCopyDoubleClick" text="Copy" />
-                                 </children>
-                              </HBox>
-                              <Label fx:id="calcError" textFill="RED" wrapText="true" />
-                           </children>
-                        </VBox>
+                          <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <tabs>
+                                  <Tab text="Dấu phẩy tĩnh">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <VBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Dấu phẩy tĩnh 2 to 10" textAlignment="CENTER" textFill="#da00ff">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="12.0" />
+                                                                      </font>
+                                                                  </Label>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Phần nguyên" />
+                                                                          <TextField fx:id="staticPoint2to10Int" prefHeight="25.0" prefWidth="309.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Phần thập phân" />
+                                                                          <TextField fx:id="staticPoint2to10Frac" prefHeight="25.0" prefWidth="309.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <CheckBox fx:id="staticPoint2to10FirstBit" mnemonicParsing="false" selected="true" text="Bit đầu là bit dấu" />
+                                                                  <Button fx:id="staticPoint2to10Convert" mnemonicParsing="false" onAction="#onStaticPoint2to10ConvertClick" text="Chuyển" />
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Kết quả" />
+                                                                          <TextField fx:id="staticPoint2to10Output" editable="false" prefHeight="25.0" prefWidth="309.0" />
+                                                                          <Button fx:id="staticPoint2to10Copy" mnemonicParsing="false" onAction="#onStaticPoint2to10CopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                              </children>
+                                                          </VBox>
+                                                          <Label fx:id="staticPoint2to10Error" textFill="RED" wrapText="true" />
+                                                          <VBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Dấu phẩy tĩnh 10 to 2" textAlignment="CENTER" textFill="#da00ff">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="12.0" />
+                                                                      </font>
+                                                                  </Label>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Input" />
+                                                                          <TextField fx:id="staticPoint10to2tInput" prefHeight="25.0" prefWidth="309.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Số bit phần nguyên" />
+                                                                          <TextField fx:id="staticPoint10to2IntCount" prefHeight="25.0" prefWidth="85.0" text="12" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Số bit phần thập phân" />
+                                                                          <TextField fx:id="staticPoint10to2FracCount" prefHeight="25.0" prefWidth="80.0" text="4" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <Button fx:id="staticPoint10to2Convert" mnemonicParsing="false" onAction="#onStaticPoint10to2ConvertClick" text="Chuyển" />
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Kết quả" />
+                                                                          <TextField fx:id="staticPoint10to2Output" editable="false" prefHeight="25.0" prefWidth="309.0" />
+                                                                          <Button mnemonicParsing="false" onAction="#onStaticPoint10to2CopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <Label fx:id="staticPoint10to2Error" textFill="RED" wrapText="true" />
+                                                              </children>
+                                                          </VBox>
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                                  <Tab text="Chuyển cơ số">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <VBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Cơ số 10 to 2" textAlignment="CENTER" textFill="#da00ff">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="12.0" />
+                                                                      </font>
+                                                                  </Label>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Input" />
+                                                                          <TextField fx:id="base10to2Input" prefHeight="25.0" prefWidth="172.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Số bit" />
+                                                                          <TextField fx:id="base10to2BitCount" prefHeight="25.0" prefWidth="75.0" text="32" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <ChoiceBox fx:id="base10to2ChoiceType" prefWidth="150.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBase10to2ConvertClick" text="Chuyển" />
+                                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Output" />
+                                                                          <TextField fx:id="base10to2Output" editable="false" prefHeight="25.0" prefWidth="240.0" />
+                                                                          <Button mnemonicParsing="false" onAction="#onBase10to2CopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <Label fx:id="base10to2Error" textFill="RED" wrapText="true" />
+                                                              </children>
+                                                          </VBox>
+                                                          <VBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Cơ số 2 to 10" textAlignment="CENTER" textFill="#da00ff">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="12.0" />
+                                                                      </font>
+                                                                  </Label>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Input" />
+                                                                          <TextField fx:id="base2to10Input" prefHeight="25.0" prefWidth="172.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <ChoiceBox fx:id="base2to10ChoiceType" prefWidth="150.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBase2to10ConvertClick" text="Chuyển" />
+                                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Output" />
+                                                                          <TextField fx:id="base2to10Output" editable="false" prefHeight="25.0" prefWidth="240.0" />
+                                                                          <Button mnemonicParsing="false" onAction="#onBase2to10CopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <Label fx:id="base2to10Error" textFill="RED" wrapText="true" />
+                                                              </children>
+                                                          </VBox>
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                                  <Tab text="Chuẩn hoá">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <Label text="Chuẩn hoá sang hệ 10, dấu phẩy động đơn, dấu phẩy động kép" textAlignment="CENTER" textFill="#da00ff">
+                                                              <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                              </font>
+                                                          </Label>
+                                                          <HBox alignment="CENTER" spacing="5.0">
+                                                              <children>
+                                                      <ChoiceBox fx:id="normalizeSign" prefHeight="25.0" prefWidth="36.0" />
+                                                                  <Label text="1." />
+                                                                  <TextField fx:id="normalizeFraction" prefHeight="25.0" prefWidth="172.0" />
+                                                                  <Label text="x 2 ^" />
+                                                                  <TextField fx:id="normalizeBase" prefHeight="25.0" prefWidth="71.0" />
+                                                              </children>
+                                                          </HBox>
+                                                          <Button mnemonicParsing="false" onAction="#onNormalizeConvertClick" text="Chuyển" />
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Hệ 10" />
+                                                                  <TextField fx:id="normalize10Output" editable="false" prefHeight="25.0" prefWidth="315.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onNormalize10CopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Single" />
+                                                                  <TextField fx:id="normalizeSingleOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onNormalizeSingleCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Double" />
+                                                                  <TextField fx:id="normalizeDoubleOutput" editable="false" prefHeight="25.0" prefWidth="453.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onNormalizeDoubleCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <Label fx:id="normalizeError" textFill="RED" wrapText="true" />
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                                  <Tab text="Hệ 10">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <Label text="Hệ 10 sang các dạng chuẩn hoá, dấu phẩy động đơn, dấu phẩy động kép" textAlignment="CENTER" textFill="#da00ff">
+                                                              <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                              </font>
+                                                          </Label>
+                                                          <HBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Input" />
+                                                                  <TextField fx:id="base10Input" prefHeight="25.0" prefWidth="218.0" />
+                                                              </children>
+                                                          </HBox>
+                                                          <Button mnemonicParsing="false" onAction="#onBase10ConvertClick" text="Chuyển" />
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Chuẩn hoá" />
+                                                                  <TextField fx:id="base10NormalizeOutput" editable="false" prefHeight="25.0" prefWidth="377.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBase10NormalizeCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Single" />
+                                                                  <TextField fx:id="base10SingleOutput" editable="false" prefHeight="25.0" prefWidth="352.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBase10SingleCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Double" />
+                                                                  <TextField fx:id="base10DoubleOutput" editable="false" prefHeight="25.0" prefWidth="457.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBase10DoubleCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <Label fx:id="base10Error" textFill="RED" wrapText="true" />
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                                  <Tab text="Single Float">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <VBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Dấu phẩy động đơn sang chuẩn hoá, hệ 10" textAlignment="CENTER" textFill="#da00ff">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="12.0" />
+                                                                      </font>
+                                                                  </Label>
+                                                                  <HBox alignment="CENTER" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Input" />
+                                                                          <TextField fx:id="singleInput" prefHeight="25.0" prefWidth="350.0" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <Button mnemonicParsing="false" onAction="#onSingleConvertClick" text="Chuyển" />
+                                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Chuẩn hoá" />
+                                                                          <TextField fx:id="singleNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="360.0" />
+                                                                          <Button mnemonicParsing="false" onAction="#onSingleNormalizeCopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="107.0" spacing="10.0">
+                                                                      <children>
+                                                                          <Label text="Hệ 10" />
+                                                                          <TextField fx:id="single10Output" editable="false" prefHeight="25.0" prefWidth="360.0" />
+                                                                          <Button mnemonicParsing="false" onAction="#onSingle10CopyClick" text="Copy" />
+                                                                      </children>
+                                                                  </HBox>
+                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="142.0" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Double" />
+                                                            <TextField fx:id="singleDoubleOutput" editable="false" prefHeight="25.0" prefWidth="360.0" />
+                                                            <Button mnemonicParsing="false" onAction="#onSingleDoubleCopyClick" text="Copy" />
+                                                         </children>
+                                                      </HBox>
+                                                                  <Label fx:id="singleError" textFill="RED" wrapText="true" />
+                                                              </children>
+                                                          </VBox>
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                                  <Tab text="Double Float">
+                                      <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                  <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <children>
+                                                          <Label text="Dấu phẩy động kép sang chuẩn hoá, hệ 10" textAlignment="CENTER" textFill="#da00ff">
+                                                              <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                              </font>
+                                                          </Label>
+                                                          <HBox alignment="CENTER" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Input" />
+                                                                  <TextField fx:id="doubleInput" prefHeight="25.0" prefWidth="513.0" />
+                                                              </children>
+                                                          </HBox>
+                                                          <Button mnemonicParsing="false" onAction="#onDoubleConvertClick" text="Chuyển" />
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Chuẩn hoá" />
+                                                                  <TextField fx:id="doubleNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="388.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onDoubleNormalizeCopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                                              <children>
+                                                                  <Label text="Hệ 10" />
+                                                                  <TextField fx:id="double10Output" editable="false" prefHeight="25.0" prefWidth="369.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#onDouble10CopyClick" text="Copy" />
+                                                              </children>
+                                                          </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Single" />
+                                                      <TextField fx:id="doubleSingleOutput" editable="false" prefHeight="25.0" prefWidth="369.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onDoubleSingleCopyClick" text="Copy" />
+                                                   </children>
+                                                </HBox>
+                                                          <Label fx:id="doubleError" textFill="RED" wrapText="true" />
+                                                      </children>
+                                                  </VBox>
+                                              </children>
+                                          </AnchorPane>
+                                      </content>
+                                  </Tab>
+                              <Tab text="Phép tính chuẩn hoá">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="CENTER" layoutY="159.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="Phép tính cộng trừ nhân chia với chuẩn hoá" textAlignment="CENTER" textFill="#da00ff">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" spacing="5.0">
+                                                   <children>
+                                                      <ChoiceBox fx:id="calcSign1" prefHeight="25.0" prefWidth="36.0" />
+                                                      <Label text="1." />
+                                                      <TextField fx:id="calcFraction1" prefHeight="25.0" prefWidth="172.0" />
+                                                      <Label text="x 2 ^" />
+                                                      <TextField fx:id="calcBase1" prefHeight="25.0" prefWidth="71.0" />
+                                                   </children>
+                                                </HBox>
+                                                <ChoiceBox fx:id="calcExpression" prefHeight="25.0" prefWidth="112.0" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="161.0" spacing="5.0">
+                                                   <children>
+                                                      <ChoiceBox fx:id="calcSign2" prefHeight="25.0" prefWidth="36.0" />
+                                                      <Label text="1." />
+                                                      <TextField fx:id="calcFraction2" prefHeight="25.0" prefWidth="172.0" />
+                                                      <Label text="x 2 ^" />
+                                                      <TextField fx:id="calcBase2" prefHeight="25.0" prefWidth="71.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" onAction="#onCalcClick" text="Chuyển" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Chuẩn hoá" />
+                                                      <TextField fx:id="calcNormalizeOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onCalcCopyNormalizeClick" text="Copy" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Hệ 10" />
+                                                      <TextField fx:id="calc10Output" editable="false" prefHeight="25.0" prefWidth="315.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onCalcCopy10Click" text="Copy" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Single" />
+                                                      <TextField fx:id="calcSingleOutput" editable="false" prefHeight="25.0" prefWidth="315.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onCalcCopySingleClick" text="Copy" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Double" />
+                                                      <TextField fx:id="calcDoubleOutput" editable="false" prefHeight="25.0" prefWidth="453.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onCalcCopyDoubleClick" text="Copy" />
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="calcError" textFill="RED" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Các dạng khác">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="CENTER" layoutY="159.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <VBox alignment="CENTER" spacing="5.0">
+                                                   <children>
+                                                      <Label text="Xác đinh tốc độ truyền của BUS" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="Cho một máy tính có số lượng dây của BUS dữ liệu là " wrapText="true" />
+                                                                  <TextField fx:id="otherBusCount" prefHeight="25.0" prefWidth="30.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="Mỗi thao tác (đọc/ghi) với RAM mất " />
+                                                                  <TextField fx:id="otherBusRW" prefHeight="25.0" prefWidth="33.0" />
+                                                                  <Label text="chu kỳ đồng hồ. " />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="Biết tần số của đồng hồ BUS là" />
+                                                                  <TextField fx:id="otherBusFreq" prefHeight="25.0" prefWidth="73.0" />
+                                                                  <Label text="MHz. Xác định tốc độ truyền dữ liệu của BUS?" />
+                                                                  <Button mnemonicParsing="false" onAction="#onBusClick" text="Run" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="20.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                      <HBox alignment="CENTER" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả" />
+                                                            <TextField fx:id="otherBusOutput" editable="false" prefHeight="25.0" prefWidth="55.0" />
+                                                            <Label text="MBps = " />
+                                                            <TextField fx:id="otherBusOutputGB" prefHeight="25.0" prefWidth="62.0" />
+                                                            <Label text="GBps" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5.0">
+                                                   <children>
+                                                      <Label text="Xác đinh số dây tối thiểu" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="Giả sử ta muốn thiết kế một mạch dồn kênh có" wrapText="true">
+                                                                     <HBox.margin>
+                                                                        <Insets left="20.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <TextField fx:id="otherAddressInput" prefHeight="25.0" prefWidth="93.0" />
+                                                                  <Label text="đầu vào, số lượng dây lựa chọn tối thiểu sẽ là" />
+                                                                  <Button mnemonicParsing="false" onAction="#onAddressClick" text="Run" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <HBox alignment="CENTER" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả" />
+                                                            <TextField fx:id="otherAddressOutput" editable="false" prefHeight="25.0" prefWidth="55.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5.0">
+                                                   <children>
+                                                      <Label text="Xác đinh số dây tối thiểu 2" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="Thông tin cấu hình một điện thoại có ghi “Hỗ trợ kích thước thẻ nhớ ngoài tối đa " wrapText="true" />
+                                                                  <TextField fx:id="otherAddress2Size" prefHeight="25.0" prefWidth="30.0" />
+                                                                  <Label text="GB”," />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="giả sử thẻ nhớ được thiết kế giống cơ chế truy nhập bộ nhớ trong, số đường dây của bus dữ liệu là " />
+                                                                  <TextField fx:id="otherAddress2Count" prefHeight="25.0" prefWidth="33.0" />
+                                                                  <Label />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                               <children>
+                                                                  <Label text="xác định số lượng dây địa chỉ tối thiểu cần phải có?" />
+                                                                  <Button mnemonicParsing="false" onAction="#onAddress2Click" text="Run" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="20.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                      <HBox alignment="CENTER" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả" />
+                                                            <TextField fx:id="otherAddress2Output" editable="false" prefHeight="25.0" prefWidth="55.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <Label fx:id="calcError1" textFill="RED" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              </tabs>
+                          </TabPane>
                      </children>
                   </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Các dạng khác">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            </content>
+          </Tab>
+          <Tab text="MIPS + Cache">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <VBox alignment="CENTER" layoutY="159.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox alignment="CENTER" spacing="5.0">
-                                 <children>
-                                    <Label text="Xác đinh tốc độ truyền của BUS" textAlignment="CENTER" textFill="#da00ff">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <VBox spacing="5.0">
+                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <tabs>
+                              <Tab text="Xác định thành phần câu lệnh">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Label text="Cho một máy tính có số lượng dây của BUS dữ liệu là " wrapText="true" />
-                                                <TextField fx:id="otherBusCount" prefHeight="25.0" prefWidth="30.0" />
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Input" />
+                                                      <TextField prefHeight="25.0" prefWidth="321.0" />
+                                                      <Button mnemonicParsing="false" text="Run" />
+                                                   </children>
+                                                </HBox>
+                                                <Label text="R-format" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="192.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="op:" />
+                                                      <TextField prefHeight="25.0" prefWidth="64.0" />
+                                                      <Label layoutX="294.0" layoutY="14.0" text="rs:" />
+                                                      <TextField layoutX="319.0" layoutY="10.0" prefHeight="25.0" prefWidth="61.0" />
+                                                      <Label layoutX="365.0" layoutY="14.0" text="rt:" />
+                                                      <TextField layoutX="390.0" layoutY="10.0" prefHeight="25.0" prefWidth="66.0" />
+                                                      <Label layoutX="436.0" layoutY="14.0" text="rd:" />
+                                                      <TextField layoutX="461.0" layoutY="10.0" prefHeight="25.0" prefWidth="46.0" />
+                                                      <Label layoutX="503.0" layoutY="14.0" text="shamt:" />
+                                                      <TextField layoutX="525.0" layoutY="10.0" prefHeight="25.0" prefWidth="46.0" />
+                                                      <Label layoutX="573.0" layoutY="14.0" text="func:" />
+                                                      <TextField layoutX="595.0" layoutY="10.0" prefHeight="25.0" prefWidth="75.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Label layoutX="336.0" layoutY="209.0" text="I-Format" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="236.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="op:" />
+                                                      <TextField prefHeight="25.0" prefWidth="64.0" />
+                                                      <Label layoutX="294.0" layoutY="14.0" text="rs:" />
+                                                      <TextField layoutX="319.0" layoutY="10.0" prefHeight="25.0" prefWidth="61.0" />
+                                                      <Label layoutX="365.0" layoutY="14.0" text="rt:" />
+                                                      <TextField layoutX="390.0" layoutY="10.0" prefHeight="25.0" prefWidth="66.0" />
+                                                      <Label layoutX="436.0" layoutY="14.0" text="offset:" />
+                                                      <TextField layoutX="461.0" layoutY="10.0" prefHeight="25.0" prefWidth="250.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Label layoutX="336.0" layoutY="267.0" text="J-Format" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="294.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="op:" />
+                                                      <TextField prefHeight="25.0" prefWidth="64.0" />
+                                                      <Label layoutX="294.0" layoutY="14.0" text="address:" />
+                                                      <TextField layoutX="319.0" layoutY="10.0" prefHeight="25.0" prefWidth="427.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="staticPoint2to10Error1" textFill="RED" wrapText="true" />
                                              </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                             <children>
-                                                <Label text="Mỗi thao tác (đọc/ghi) với RAM mất " />
-                                                <TextField fx:id="otherBusRW" prefHeight="25.0" prefWidth="33.0" />
-                                                <Label text="chu kỳ đồng hồ. " />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                             <children>
-                                                <Label text="Biết tần số của đồng hồ BUS là" />
-                                                <TextField fx:id="otherBusFreq" prefHeight="25.0" prefWidth="73.0" />
-                                                <Label text="MHz. Xác định tốc độ truyền dữ liệu của BUS?" />
-                                                <Button mnemonicParsing="false" onAction="#onBusClick" text="Run" />
-                                             </children>
-                                          </HBox>
+                                          </VBox>
                                        </children>
-                                       <padding>
-                                          <Insets left="20.0" />
-                                       </padding>
-                                    </VBox>
-                                    <HBox alignment="CENTER" spacing="10.0">
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Tag/Index/Offset">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="Kết quả" />
-                                          <TextField fx:id="otherBusOutput" editable="false" prefHeight="25.0" prefWidth="55.0" />
-                                          <Label text="MBps = " />
-                                          <TextField fx:id="otherBusOutputGB" prefHeight="25.0" prefWidth="62.0" />
-                                          <Label text="GBps" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" spacing="5.0">
-                                 <children>
-                                    <Label text="Xác đinh số dây tối thiểu" textAlignment="CENTER" textFill="#da00ff">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <VBox spacing="5.0">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Label text="Giả sử ta muốn thiết kế một mạch dồn kênh có" wrapText="true">
-                                                   <HBox.margin>
-                                                      <Insets left="20.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <TextField fx:id="otherAddressInput" prefHeight="25.0" prefWidth="93.0" />
-                                                <Label text="đầu vào, số lượng dây lựa chọn tối thiểu sẽ là" />
-                                                <Button mnemonicParsing="false" onAction="#onAddressClick" text="Run" />
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Kích thước cache" />
+                                                      <TextField prefHeight="25.0" prefWidth="71.0" />
+                                                      <ChoiceBox prefHeight="25.0" prefWidth="58.0" />
+                                                      <Label layoutX="280.0" layoutY="14.0" text="Kích thước slot" />
+                                                      <TextField layoutX="314.0" layoutY="10.0" prefHeight="25.0" prefWidth="47.0" />
+                                                      <Label layoutX="371.0" layoutY="14.0" text="(bytes)" />
+                                                      <Label layoutX="358.0" layoutY="14.0" text="Thanh ghi địa chỉ" />
+                                                      <TextField layoutX="397.0" layoutY="10.0" prefHeight="25.0" prefWidth="44.0" />
+                                                      <Label layoutX="484.0" layoutY="14.0" text="bit" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="95.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="Tham chiếu (nếu có)" />
+                                                      <TextField prefHeight="25.0" prefWidth="331.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" text="Run" />
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="258.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="tag (hệ 10)" />
+                                                      <TextField prefHeight="25.0" prefWidth="64.0" />
+                                                      <Label layoutX="294.0" layoutY="14.0" text="index (hệ 10)" />
+                                                      <TextField layoutX="319.0" layoutY="10.0" prefHeight="25.0" prefWidth="61.0" />
+                                                      <Label layoutX="365.0" layoutY="14.0" text="offset (hệ 10)" />
+                                                      <TextField layoutX="390.0" layoutY="10.0" prefHeight="25.0" prefWidth="66.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="192.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="tag:index:offset" />
+                                                      <TextField prefHeight="25.0" prefWidth="305.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="275.0" spacing="10.0">
+                                                   <children>
+                                                      <Label text="tỷ lệ số bit" />
+                                                      <TextField prefHeight="25.0" prefWidth="200.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="staticPoint2to10Error12" textFill="RED" wrapText="true" />
                                              </children>
-                                          </HBox>
+                                          </VBox>
                                        </children>
-                                    </VBox>
-                                    <HBox alignment="CENTER" spacing="10.0">
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Tính CPI/MIPS">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="Kết quả" />
-                                          <TextField fx:id="otherAddressOutput" editable="false" prefHeight="25.0" prefWidth="55.0" />
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                             <children>
+                                                <VBox spacing="5.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Tính MIPS (multicycled)" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label text="R-type là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="172.0" layoutY="14.0" text="\%,  đọc là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="416.0" layoutY="14.0" text="\%, ghi là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%. rẽ nhánh là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%" />
+                                                            <Label text="nhảy là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="tần số đồng hồ (nếu có)" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="GHz" />
+                                                            <Button mnemonicParsing="false" text="Run" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả: CPI=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField prefHeight="25.0" prefWidth="65.0" />
+                                                            <Label layoutX="172.0" layoutY="14.0" text="MIPS=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField layoutX="335.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <Label fx:id="staticPoint2to10Error11" textFill="RED" wrapText="true" />
+                                                <VBox layoutX="10.0" layoutY="144.0" spacing="5.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Tính MIPS (pipelined)" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label text="R-type là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="172.0" layoutY="14.0" text="\%,  đọc là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="416.0" layoutY="14.0" text="\%, ghi là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%. rẽ nhánh là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%" />
+                                                            <Label text="nhảy là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="Lệnh đọc phụ thuộc dữ liệu" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%, (tốn " />
+                                                            <TextField layoutX="214.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" />
+                                                            <Label layoutX="251.0" layoutY="14.0" text="chu kì), " />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="62.0" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="Lệnh rẽ nhánh dự đoán sai" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%, (tốn " />
+                                                            <TextField layoutX="214.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" />
+                                                            <Label layoutX="251.0" layoutY="14.0" text="chu kì), " />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="92.0" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="Lệnh nhảy luôn tốn" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="251.0" layoutY="14.0" text="chu kì, tần số đồng hồ (nếu có)" />
+                                                            <TextField layoutX="115.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" />
+                                                            <Label layoutX="152.0" layoutY="14.0" text="GHz" />
+                                                            <Button mnemonicParsing="false" text="Run" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả: CPI=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField prefHeight="25.0" prefWidth="65.0" />
+                                                            <Label layoutX="172.0" layoutY="14.0" text="MIPS=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField layoutX="335.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+                                                            <Label layoutX="355.0" layoutY="14.0" text="Số lần=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField layoutX="370.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" spacing="5.0">
-                                 <children>
-                                    <Label text="Xác đinh số dây tối thiểu 2" textAlignment="CENTER" textFill="#da00ff">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <VBox spacing="5.0">
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Tính MIPS/CPI với cache">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                              <children>
-                                                <Label text="Thông tin cấu hình một điện thoại có ghi “Hỗ trợ kích thước thẻ nhớ ngoài tối đa " wrapText="true" />
-                                                <TextField fx:id="otherAddress2Size" prefHeight="25.0" prefWidth="30.0" />
-                                                <Label text="GB”," />
+                                                <VBox spacing="5.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Tính MIPS (Level 1 cache)" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label text="lw và sw chiếm" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="172.0" layoutY="14.0" text=". CPI lý tưởng là " />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="416.0" layoutY="14.0" text="I-cache tỉ lệ miss là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%. D-cache có tỉ lệ lỗi" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="chi phí cho mỗi lần miss là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="chu kì" />
+                                                            <Button mnemonicParsing="false" text="Run" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả: CPI=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField prefHeight="25.0" prefWidth="65.0" />
+                                                            <Label layoutX="172.0" layoutY="14.0" text="Số lần chậm hơn=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField layoutX="335.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <Label fx:id="staticPoint2to10Error111" textFill="RED" wrapText="true" />
+                                                <VBox layoutX="10.0" layoutY="144.0" spacing="5.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Tính MIPS (level 2 cache)" textAlignment="CENTER" textFill="#da00ff">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label text="CPI lý tưởng là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="172.0" layoutY="14.0" text=",  tần số CPU là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label layoutX="416.0" layoutY="14.0" text="GHz, tỉ lệ miss cache L1 là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="\%. Thời gian truy cập RAM là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="ns" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" spacing="2.0">
+                                                         <children>
+                                                            <Label layoutX="395.0" layoutY="14.0" text="thời gian truy cập cache L2 là" />
+                                                            <TextField prefHeight="25.0" prefWidth="35.0">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label text="ns, tỉ lệ miss toàn cục là" />
+                                                            <TextField layoutX="214.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" />
+                                                            <Label layoutX="251.0" layoutY="14.0" text="\%,  chi phí xử lý tốn" />
+                                                            <TextField layoutX="331.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" />
+                                                            <Label layoutX="368.0" layoutY="14.0" text="chu kì" />
+                                                            <Button mnemonicParsing="false" text="Run" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" spacing="10.0">
+                                                         <children>
+                                                            <Label text="Kết quả: CPI=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField prefHeight="25.0" prefWidth="65.0" />
+                                                            <Label layoutX="172.0" layoutY="14.0" text="Số lần chậm hơn=">
+                                                               <HBox.margin>
+                                                                  <Insets right="-8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField layoutX="335.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
                                              </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                             <children>
-                                                <Label text="giả sử thẻ nhớ được thiết kế giống cơ chế truy nhập bộ nhớ trong, số đường dây của bus dữ liệu là " />
-                                                <TextField fx:id="otherAddress2Count" prefHeight="25.0" prefWidth="33.0" />
-                                                <Label />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                             <children>
-                                                <Label text="xác định số lượng dây địa chỉ tối thiểu cần phải có?" />
-                                                <Button mnemonicParsing="false" onAction="#onAddress2Click" text="Run" />
-                                             </children>
-                                          </HBox>
+                                          </VBox>
                                        </children>
-                                       <padding>
-                                          <Insets left="20.0" />
-                                       </padding>
-                                    </VBox>
-                                    <HBox alignment="CENTER" spacing="10.0">
-                                       <children>
-                                          <Label text="Kết quả" />
-                                          <TextField fx:id="otherAddress2Output" editable="false" prefHeight="25.0" prefWidth="55.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <Label fx:id="calcError1" textFill="RED" wrapText="true" />
-                           </children>
-                        </VBox>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
                      </children>
                   </AnchorPane>
-               </content>
-            </Tab>
-            </tabs>
-        </TabPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
     </children>
 </AnchorPane>
