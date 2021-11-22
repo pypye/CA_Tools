@@ -83,7 +83,10 @@ public class CalcMIPSComponent {
   }
 
   public static void main(String[] args) {
-    CalcMIPSComponent test = new CalcMIPSComponent("00000010001100100100000000100000", 'R');
-    System.out.println(test.getFunct());
+    CalcMIPSComponent test = new CalcMIPSComponent("00000001001011011101101111011000", 'R');
+    System.out.println(test.getRs());
+    System.out.println(test.getOp());
+    System.out.println(test.getRt());
+    System.out.println(test.getShamt());
   }
 }

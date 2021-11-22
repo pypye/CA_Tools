@@ -98,8 +98,8 @@ public class Calc_Tag_Index_Offset {
   }
 
   public static void main(String[] args) {
-    Calc_Tag_Index_Offset test = new Calc_Tag_Index_Offset((int) (256 * Math.pow(2, 10)), 32, 32,
-        22456);
+    Calc_Tag_Index_Offset test = new Calc_Tag_Index_Offset((int) (1 * Math.pow(2, 20)), 16, 32,
+        142356);
 //    System.out.println(test.getTagBits());
 //    System.out.println(test.getIndexBits());
 //    System.out.println(test.getOffsetBits());
