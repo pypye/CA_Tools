@@ -8,7 +8,10 @@ public class MIPS_pipeline {
   private double _branch;
   private double _jump;
   private double _lw_2cycle;
+  private double _lw_2cycle_cyc;
   private double _branch_2cycle;
+  private double _branch_2cycle_cyc;
+  private double _jump_always;
   private double _CPU;
 
   public double get_Rtype() {
@@ -76,27 +79,29 @@ public class MIPS_pipeline {
   }
 
   public MIPS_pipeline(double _Rtype, double _lw, double _sw, double _branch, double _jump,
-      double _lw_2cycle, double _branch_2cycle, double _CPU) {
+      double _lw_2cycle, double _lw_2cycle_cyc, double _branch_2cycle, double _branch_2cycle_cyc, double _jump_always, double _CPU) {
     this._Rtype = _Rtype/100;
     this._lw = _lw/100;
     this._sw = _sw/100;
     this._branch = _branch/100;
     this._jump = _jump/100;
     this._lw_2cycle = _lw_2cycle/100;
+    this._lw_2cycle_cyc = _lw_2cycle_cyc;
     this._branch_2cycle = _branch_2cycle/100;
+    this._branch_2cycle_cyc = _branch_2cycle_cyc;
+    this._jump_always = _jump_always;
     this._CPU = _CPU;
   }
 
   public double getCPI() {
-    return _Rtype + _lw * (_lw_2cycle * 2 + 1 - _lw_2cycle) + _sw + _branch * (_branch_2cycle * 2 + 1 - _branch_2cycle) + _jump * 2;
+    return _Rtype + _lw * (_lw_2cycle * _lw_2cycle_cyc + 1 - _lw_2cycle) + _sw + _branch * (_branch_2cycle * _branch_2cycle_cyc + 1 - _branch_2cycle) + _jump * _jump_always;
   }
-
-  public double getMIPS() {
-    return Math.round(_CPU / getCPI() * 1000);
+  public int getMIPS() {
+    return (int) Math.round(_CPU / getCPI() * 1000);
   }
 
   public static void main(String[] args) {
-    MIPS_pipeline test = new MIPS_pipeline(49, 22, 11, 16, 2, 50, 25, 2.4);
+    MIPS_pipeline test = new MIPS_pipeline(49, 22, 11, 16, 2, 50, 2,25,2, 2, 2.4);
     System.out.println(test.getCPI());
     System.out.println(test.getMIPS());
   }

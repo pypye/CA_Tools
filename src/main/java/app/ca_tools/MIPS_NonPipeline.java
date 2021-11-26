@@ -71,8 +71,8 @@ public class MIPS_NonPipeline {
     return _Rtype * 4 + _lw * 5 + _sw * 4 + _branch * 3 + _jump * 3;
   }
 
-  public double getMIPS() {
-    return Math.round(_CPU / getCPI() * 1000);
+  public int getMIPS() {
+    return (int) Math.round(_CPU / getCPI() * 1000);
   }
 
   public static void main(String[] args) {
