@@ -346,7 +346,7 @@ public class ApplicationController {
             double size = Double.parseDouble(otherAddress2Size.getText());
             double count = Double.parseDouble(otherAddress2Count.getText());
             double output = (size * 1024 * 1024 * 1024) / (count / 8);
-            int line = (int) Math.ceil(Math.log(output) / Math.log(2));
+            int line = (int) Math.ceil((float) Math.log(output) / (float) Math.log(2));
             otherAddress2Output.setText(String.valueOf(line));
             otherError.setText(null);
         } catch (Exception e) {

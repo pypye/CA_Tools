@@ -65,11 +65,11 @@ public class Calc_Tag_Index_Offset {
     }
 
     public int getIndexBits() {
-        return (int) (Math.log(1.0 * cacheSize / blockSize) / Math.log(2));
+        return (int) ((float) Math.log(1.0 * cacheSize / blockSize) / (float) Math.log(2));
     }
 
     public int getOffsetBits() {
-        return (int) (Math.log(blockSize) / Math.log(2));
+        return (int) ((float) Math.log(blockSize) / (float) Math.log(2));
     }
 
     public String getTagBinary() {
