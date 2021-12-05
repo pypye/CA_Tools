@@ -35,8 +35,8 @@ public class ApplicationController {
     @FXML
     public void onStaticPoint2to10ConvertClick() {
         try {
-            String intPart = staticPoint2to10Int.getText().trim();
-            String fracPart = staticPoint2to10Frac.getText().trim();
+            String intPart = staticPoint2to10Int.getText().trim().trim();
+            String fracPart = staticPoint2to10Frac.getText().trim().trim();
             double ans = 0.0f;
             double v = (intPart.charAt(0) == '0' ? 0 : Math.pow(2, intPart.length() - 1));
             if (staticPoint2to10FirstBit.isSelected()) ans -= v;
@@ -61,9 +61,9 @@ public class ApplicationController {
     @FXML
     public void onStaticPoint10to2ConvertClick() {
         try {
-            double input = Double.parseDouble(staticPoint10to2tInput.getText().trim());
-            int intCount = Integer.parseInt(staticPoint10to2IntCount.getText().trim());
-            int fracCount = Integer.parseInt(staticPoint10to2FracCount.getText().trim());
+            double input = Double.parseDouble(staticPoint10to2tInput.getText().trim().trim());
+            int intCount = Integer.parseInt(staticPoint10to2IntCount.getText().trim().trim());
+            int fracCount = Integer.parseInt(staticPoint10to2FracCount.getText().trim().trim());
             StringBuilder output = new StringBuilder();
             if (input < 0) {
                 input += Math.pow(2, intCount - 1);
@@ -103,7 +103,7 @@ public class ApplicationController {
     @FXML
     public void onBase2to10ConvertClick() {
         try {
-            String input = base2to10Input.getText();
+            String input = base2to10Input.getText().trim();
             int ans = 0;
             for (int i = 1; i < input.length(); i++)
                 if (input.charAt(i) == '1') ans += Math.pow(2, input.length() - 1 - i);
@@ -131,8 +131,8 @@ public class ApplicationController {
     @FXML
     public void onBase10to2ConvertClick() {
         try {
-            int input = Integer.parseInt(base10to2Input.getText().trim());
-            int bitCount = Integer.parseInt(base10to2BitCount.getText().trim());
+            int input = Integer.parseInt(base10to2Input.getText().trim().trim());
+            int bitCount = Integer.parseInt(base10to2BitCount.getText().trim().trim());
             if (base10to2ChoiceType.getValue().equals("Bù 2") && (input >= Math.pow(2, bitCount - 1) || input < -Math.pow(2, bitCount - 1))) {
                 base10to2Error.setText(null);
                 base10to2Output.setText("tràn số");
@@ -181,8 +181,8 @@ public class ApplicationController {
     public void onNormalizeConvertClick() {
         try {
             boolean _sign = normalizeSign.getValue().equals("-");
-            String _fraction = "1." + normalizeFraction.getText();
-            int _base = Integer.parseInt(normalizeBase.getText());
+            String _fraction = "1." + normalizeFraction.getText().trim();
+            int _base = Integer.parseInt(normalizeBase.getText().trim());
             Normalize input = new Normalize(_sign, _fraction, _base);
             normalize10Output.setText(Base10.convertNormalizeTo10(input));
             normalizeSingleOutput.setText(FloatSingle.convertNormalizeToSingle(input));
@@ -203,7 +203,7 @@ public class ApplicationController {
     @FXML
     public void onBase10ConvertClick() {
         try {
-            Normalize input = Normalize.convert10ToNormalize(base10Input.getText());
+            Normalize input = Normalize.convert10ToNormalize(base10Input.getText().trim());
             String newAns = String.format("%s%sx2^(%s)\n", input.isSign() ? "-" : "", input.getFraction(), input.getBase());
             base10NormalizeOutput.setText(newAns);
             base10SingleOutput.setText(FloatSingle.convertNormalizeToSingle(input));
@@ -224,7 +224,7 @@ public class ApplicationController {
     @FXML
     public void onSingleConvertClick() {
         try {
-            String input = singleInput.getText();
+            String input = singleInput.getText().trim();
             FloatSingle inputSingle = new FloatSingle(input.charAt(0) == '1', input.substring(1, 9), input.substring(9));
             Normalize output = Normalize.convertSingleToNormalize(inputSingle);
             String newAns = String.format("%s%sx2^(%s)\n", output.isSign() ? "-" : "", output.getFraction(), output.getBase());
@@ -247,7 +247,7 @@ public class ApplicationController {
     @FXML
     public void onDoubleConvertClick() {
         try {
-            String input = doubleInput.getText();
+            String input = doubleInput.getText().trim();
             FloatDouble inputDouble = new FloatDouble(input.charAt(0) == '1', input.substring(1, 12), input.substring(12));
             Normalize output = Normalize.convertDoubleToNormalize(inputDouble);
             String newAns = String.format("%s%sx2^(%s)\n", output.isSign() ? "-" : "", output.getFraction(), output.getBase());
@@ -274,10 +274,10 @@ public class ApplicationController {
         try {
             boolean sign1 = calcSign1.getValue().equals("-");
             boolean sign2 = calcSign2.getValue().equals("-");
-            String fraction1 = "1." + calcFraction1.getText();
-            String fraction2 = "1." + calcFraction2.getText();
-            int base1 = Integer.parseInt(calcBase1.getText());
-            int base2 = Integer.parseInt(calcBase2.getText());
+            String fraction1 = "1." + calcFraction1.getText().trim();
+            String fraction2 = "1." + calcFraction2.getText().trim();
+            int base1 = Integer.parseInt(calcBase1.getText().trim());
+            int base2 = Integer.parseInt(calcBase2.getText().trim());
             Normalize input1 = new Normalize(sign1, fraction1, base1);
             Normalize input2 = new Normalize(sign2, fraction2, base2);
             double base10Input1 = Double.parseDouble(Base10.convertNormalizeTo10(input1));
@@ -312,9 +312,9 @@ public class ApplicationController {
     @FXML
     public void onBusClick() {
         try {
-            double count = Double.parseDouble(otherBusCount.getText());
-            double RW = Double.parseDouble(otherBusRW.getText());
-            double freq = Double.parseDouble(otherBusFreq.getText());
+            double count = Double.parseDouble(otherBusCount.getText().trim());
+            double RW = Double.parseDouble(otherBusRW.getText().trim());
+            double freq = Double.parseDouble(otherBusFreq.getText().trim());
             double RWPerSec = (freq * 1000000) / RW;
             double bytes = count / 8;
             double speed = (RWPerSec * bytes) / 1048576;
@@ -330,8 +330,8 @@ public class ApplicationController {
     @FXML
     public void onAddressClick() {
         try {
-            double input = Double.parseDouble(otherAddressInput.getText());
-            int output = (int) Math.ceil(Math.log(input) / Math.log(2));
+            double input = Double.parseDouble(otherAddressInput.getText().trim());
+            int output = (int) Math.ceil((float) Math.log(input) / (float) Math.log(2));
             otherAddressOutput.setText(String.valueOf(output));
             otherError.setText(null);
         } catch (Exception e) {
@@ -343,8 +343,8 @@ public class ApplicationController {
     @FXML
     public void onAddress2Click() {
         try {
-            double size = Double.parseDouble(otherAddress2Size.getText());
-            double count = Double.parseDouble(otherAddress2Count.getText());
+            double size = Double.parseDouble(otherAddress2Size.getText().trim());
+            double count = Double.parseDouble(otherAddress2Count.getText().trim());
             double output = (size * 1024 * 1024 * 1024) / (count / 8);
             int line = (int) Math.ceil((float) Math.log(output) / (float) Math.log(2));
             otherAddress2Output.setText(String.valueOf(line));
@@ -364,7 +364,7 @@ public class ApplicationController {
     @FXML
     public void onMipsClick() {
         try {
-            String input = mipsInput.getText();
+            String input = mipsInput.getText().trim();
             CalcMIPSComponent compR = new CalcMIPSComponent(input, 'R');
             CalcMIPSComponent compI = new CalcMIPSComponent(input, 'I');
             CalcMIPSComponent compJ = new CalcMIPSComponent(input, 'J');
@@ -398,12 +398,12 @@ public class ApplicationController {
     @FXML
     public void onTioClick() {
         try {
-            int input = Integer.parseInt(cacheSizeTioInput.getText());
-            int slotSize = Integer.parseInt(slotSizeTioInput.getText());
-            int addressReg = Integer.parseInt(addressRegTioInput.getText());
+            int input = Integer.parseInt(cacheSizeTioInput.getText().trim());
+            int slotSize = Integer.parseInt(slotSizeTioInput.getText().trim());
+            int addressReg = Integer.parseInt(addressRegTioInput.getText().trim());
             int ref;
-            if (RefTioInput.getText() == null || RefTioInput.getText().trim().equals("")) ref = -1;
-            else ref = Integer.parseInt(RefTioInput.getText());
+            if (RefTioInput.getText().trim() == null || RefTioInput.getText().trim().trim().equals("")) ref = -1;
+            else ref = Integer.parseInt(RefTioInput.getText().trim());
             if (tioChoiceBox.getValue().equals("KB")) input *= 1024;
             else if (tioChoiceBox.getValue().equals("MB")) input *= 1024 * 1024;
             else if (tioChoiceBox.getValue().equals("slots")) input *= slotSize;
@@ -439,14 +439,14 @@ public class ApplicationController {
     @FXML
     public void onMultiCycleClick() {
         try {
-            int _R_type = Integer.parseInt(mul_R_per.getText());
-            int _lw = Integer.parseInt(mul_lw_per.getText());
-            int _sw = Integer.parseInt(mul_sw_per.getText());
-            int _branch = Integer.parseInt(mul_branch_per.getText());
-            int _jump = Integer.parseInt(mul_jump_per.getText());
+            int _R_type = Integer.parseInt(mul_R_per.getText().trim());
+            int _lw = Integer.parseInt(mul_lw_per.getText().trim());
+            int _sw = Integer.parseInt(mul_sw_per.getText().trim());
+            int _branch = Integer.parseInt(mul_branch_per.getText().trim());
+            int _jump = Integer.parseInt(mul_jump_per.getText().trim());
             double _clock_rate;
-            if (mul_clock_rate.getText() == null || mul_clock_rate.getText().trim().equals("")) _clock_rate = -1;
-            else _clock_rate = Double.parseDouble(mul_clock_rate.getText());
+            if (mul_clock_rate.getText().trim() == null || mul_clock_rate.getText().trim().trim().equals("")) _clock_rate = -1;
+            else _clock_rate = Double.parseDouble(mul_clock_rate.getText().trim());
             MIPS_NonPipeline multiCycled = new MIPS_NonPipeline(_R_type, _lw, _sw, _branch, _jump, _clock_rate);
             mul_cpi.setText(String.valueOf(multiCycled.getCPI()));
             if (_clock_rate == -1) mul_mips.setText("null");
@@ -461,19 +461,19 @@ public class ApplicationController {
     @FXML
     public void onPipelinedClick() {
         try {
-            int _R_type = Integer.parseInt(pip_R_per.getText());
-            int _lw = Integer.parseInt(pip_lw_per.getText());
-            int _sw = Integer.parseInt(pip_sw_per.getText());
-            int _branch = Integer.parseInt(pip_branch_per.getText());
-            int _jump = Integer.parseInt(pip_jump_per.getText());
-            int _lw_miss = Integer.parseInt(pip_lw_miss.getText());
-            int _lw_miss_cyc = Integer.parseInt(pip_lw_miss_cyc.getText());
-            int _branch_miss = Integer.parseInt(pip_branch_miss.getText());
-            int _branch_miss_cyc = Integer.parseInt(pip_branch_miss_cyc.getText());
-            int _jump_always_cyc = Integer.parseInt(pip_jump_always_cyc.getText());
+            int _R_type = Integer.parseInt(pip_R_per.getText().trim());
+            int _lw = Integer.parseInt(pip_lw_per.getText().trim());
+            int _sw = Integer.parseInt(pip_sw_per.getText().trim());
+            int _branch = Integer.parseInt(pip_branch_per.getText().trim());
+            int _jump = Integer.parseInt(pip_jump_per.getText().trim());
+            int _lw_miss = Integer.parseInt(pip_lw_miss.getText().trim());
+            int _lw_miss_cyc = Integer.parseInt(pip_lw_miss_cyc.getText().trim());
+            int _branch_miss = Integer.parseInt(pip_branch_miss.getText().trim());
+            int _branch_miss_cyc = Integer.parseInt(pip_branch_miss_cyc.getText().trim());
+            int _jump_always_cyc = Integer.parseInt(pip_jump_always_cyc.getText().trim());
             double _clock_rate;
-            if (pip_clock_rate.getText() == null || pip_clock_rate.getText().trim().equals("")) _clock_rate = -1;
-            else _clock_rate = Double.parseDouble(pip_clock_rate.getText());
+            if (pip_clock_rate.getText().trim() == null || pip_clock_rate.getText().trim().trim().equals("")) _clock_rate = -1;
+            else _clock_rate = Double.parseDouble(pip_clock_rate.getText().trim());
             MIPS_pipeline pipeline = new MIPS_pipeline(_R_type, _lw, _sw, _branch, _jump, _lw_miss, _lw_miss_cyc, _branch_miss, _branch_miss_cyc, _jump_always_cyc, _clock_rate);
             MIPS_NonPipeline multiCycled = new MIPS_NonPipeline(_R_type, _lw, _sw, _branch, _jump, _clock_rate);
             pip_cpi.setText(String.format("%.2f", pipeline.getCPI()));
@@ -498,11 +498,11 @@ public class ApplicationController {
     @FXML
     public void onL1Click() {
         try {
-            double _lw_sw = Double.parseDouble(l1_lw_sw_per.getText());
-            double _cpi_ideal = Double.parseDouble(l1_cpi_ideal.getText());
-            double _i_miss = Double.parseDouble(l1_i_miss_per.getText());
-            double _d_miss = Double.parseDouble(l1_d_miss_per.getText());
-            double _miss_cost = Double.parseDouble(l1_miss_cost.getText());
+            double _lw_sw = Double.parseDouble(l1_lw_sw_per.getText().trim());
+            double _cpi_ideal = Double.parseDouble(l1_cpi_ideal.getText().trim());
+            double _i_miss = Double.parseDouble(l1_i_miss_per.getText().trim());
+            double _d_miss = Double.parseDouble(l1_d_miss_per.getText().trim());
+            double _miss_cost = Double.parseDouble(l1_miss_cost.getText().trim());
             Cache_L1 l1 = new Cache_L1(_lw_sw, _cpi_ideal, _i_miss, _d_miss, _miss_cost);
             l1_cpi.setText(String.format("%.2f", l1.getRealCPI()));
             l1_slower.setText(String.format("%.2f", l1.getSlower()));
@@ -516,13 +516,13 @@ public class ApplicationController {
     @FXML
     public void onL2Click() {
         try {
-            double _lw_sw = Double.parseDouble(l2_lw_sw_per.getText());
-            double _cpi_ideal = Double.parseDouble(l2_cpi_ideal.getText());
-            double _l1_miss = Double.parseDouble(l2_l1_miss.getText());
-            double _ram_access_time = Double.parseDouble(l2_ram_access_time.getText());
-            double _access_time = Double.parseDouble(l2_access_time.getText());
-            double _global_miss = Double.parseDouble(l2_global_miss.getText());
-            double _cost = Double.parseDouble(l2_cost.getText());
+            double _lw_sw = Double.parseDouble(l2_lw_sw_per.getText().trim());
+            double _cpi_ideal = Double.parseDouble(l2_cpi_ideal.getText().trim());
+            double _l1_miss = Double.parseDouble(l2_l1_miss.getText().trim());
+            double _ram_access_time = Double.parseDouble(l2_ram_access_time.getText().trim());
+            double _access_time = Double.parseDouble(l2_access_time.getText().trim());
+            double _global_miss = Double.parseDouble(l2_global_miss.getText().trim());
+            double _cost = Double.parseDouble(l2_cost.getText().trim());
             Cache_L2 l2 = new Cache_L2(_lw_sw, _cpi_ideal, _l1_miss, _ram_access_time, _access_time, _global_miss, _cost);
             l2_cpi.setText(String.format("%.2f", l2.getCPIL2()));
             l2_faster_l1.setText(String.format("%.2f", l2.getL2FasterL1()));
